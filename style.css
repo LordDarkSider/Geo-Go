@@ -33,17 +33,26 @@ h1{
     width: 25%;
 }
 
-.info{
-    display: block;
-    padding: 0.5em;
-    font-size: 1.5rem;
-    margin-top: 1.5em;
-    color: #ffff;
+.info {
+    display:block;
+    margin: auto;
+    margin-block: 1em;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
     border-radius: 10px;
+    background-image: linear-gradient(to top left,
+                                    rgba(0, 0, 0, .2),
+                                    rgba(0, 0, 0, .2) 30%,
+                                    rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
 
 #timer{background-color: DarkBlue;}
 #distance{background-color: Darkgreen;}
 #coordo{background-color: Darkred;}
-
-
