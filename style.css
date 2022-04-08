@@ -1,8 +1,12 @@
 body{
+    justify-content: center;
     text-align: center;
     background-color: BLACK;
     user-select: none;
     white-space: nowrap;
+    height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 #heading{
@@ -23,26 +27,32 @@ h1{
     margin-right: 0.5em;
 }
 
+#instruc{
+    font-family: 'Lilita One';
+    font-size: 1em;
+    color: gold;
+    display: block;
+    margin: 0;
+}
+
 #picture{
-    margin: 1em;
-    width: 50%;
-    max-height: 50%;
+    width: 95%;
+    margin-top: 0.5em;
+    margin-bottom: 2em;
 }
 
 #interface{
-    margin: auto;
-    width: 25%;
+    margin: 0 auto;
 }
 
 .info {
     display:block;
-    margin: auto;
+    margin: 0 auto;
     margin-block: 1em;
     border: 0;
     line-height: 2.5;
     padding: 0 20px;
     font-size: 1rem;
-    text-align: center;
     color: #fff;
     text-shadow: 1px 1px 1px #000;
     border-radius: 10px;
@@ -57,3 +67,21 @@ h1{
 #timer{background-color: DarkBlue;}
 #distance{background-color: Darkgreen;}
 #coordo{background-color: Darkred;}
+
+footer {
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 3em;
+    background-color: grey;
+}
+
+#credits{
+    padding: 0 10px;
+    display:grid;
+    font-size: 0.65em;
+    word-wrap: break-word;
+}
