@@ -2,9 +2,11 @@ let picture = document.getElementById('picture');
 let timer =  document.getElementById('timer');
 let distance =  document.getElementById('distance');
 let coordo = document.getElementById('coordo');
+let credits = document.getElementById('credits');
 
 var t = 0;
 var d = 1000;
+var image_author = 'SU'
 
 function time(){
     t=t+1
@@ -18,17 +20,18 @@ function time(){
     var s= String((t%60));
     if(s.length==1){s=('0'+s)};
 
-    timer.innerHTML = ('Time: '+String(h)+':'+String(m)+':'+String(s));
+    timer.innerHTML = ('Temps: '+String(h)+':'+String(m)+':'+String(s));
 };
 
 function end(){
-    share= confirm('Well done! You have won!\nScore: ...\n\nWould you like to share your score?')
+    share= confirm('Bravo ! Vous avez gagné !\nScore: ...\n\nVoulez-vous partagez votre score ?')
     location.reload();
 };
 
 
 picture.src='https://upload.wikimedia.org/wikipedia/commons/5/52/Lycee_descartes.jpg';
 
+credits.insertAdjacentHTML("afterbegin", "Image founie par "+image_author+" sur mapillery.")
 
 distance.innerHTML = ('Distance: '+d+' m');
 
