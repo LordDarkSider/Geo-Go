@@ -34,6 +34,7 @@ function geolocalisation(){
         position => {coordo.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;},
         geoerror
     );
+    setTimeout(geolocalisation,2000);
 };
 
 function geoerror(error){
@@ -52,6 +53,6 @@ addEventListener("keyup", function(event){
 });
 
 
-setInterval(geolocalisation, 2000);
+geolocalisation();
 
 setInterval(time, 1000);
