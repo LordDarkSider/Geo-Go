@@ -29,14 +29,29 @@ function end(){
 };
 
 
+function geolocalisation(){
+    navigator.geolocation.getCurrentPosition(
+        position => {coordo.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;},
+        geoerror
+    );
+};
+
+function geoerror(error){
+    alert("Géolocalisation impossible !");
+    location.reload();
+};
+
 picture.src='https://upload.wikimedia.org/wikipedia/commons/5/52/Lycee_descartes.jpg';
 
-credits.insertAdjacentHTML("afterbegin", "Image founie par "+image_author+" sur mapillery.")
+credits.insertAdjacentHTML("afterbegin", "Image founie par "+image_author+" sur mapillery.");
 
 distance.innerHTML = ('Distance: '+d+' m');
 
 addEventListener("keyup", function(event){
     if (event.keyCode === 13) {d=d-100; distance.innerHTML = ('Distance: '+d+' m'); if(d<=5){end()}}
 });
+
+
+setInterval(geolocalisation, 2000);
 
 setInterval(time, 1000);
