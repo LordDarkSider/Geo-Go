@@ -38,7 +38,7 @@ h1{
 #picture{
     width: 95%;
     margin-top: 0.5em;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 #interface{
@@ -68,14 +68,14 @@ h1{
 #distance{background-color: Darkgreen;}
 #coordo{background-color: Darkred;}
 
-footer {
+#footer {
     word-wrap: break-word;
     width: 100%;
     position: fixed;
     bottom: 0;
     justify-content: center;
     margin: 0 auto;
-    margin-top: 5em;
+    margin-top: 3em;
     background-color: rgba(100,100,100,0.7);
 }
 
