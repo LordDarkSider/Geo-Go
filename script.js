@@ -6,7 +6,7 @@ let credits = document.getElementById('credits');
 
 var t = 0;
 var d = 1000;
-var image_author = 'SU'
+var image_author = "quelq'un"
 
 function time(){
     t=t+1
