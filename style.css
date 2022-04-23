@@ -4,7 +4,7 @@ body{
     background-color: BLACK;
     user-select: none;
     white-space: nowrap;
-    height: 100%;
+    height: max-content;
 	margin: 0;
 	padding: 0;
 }
@@ -71,7 +71,6 @@ h1{
 #footer {
     word-wrap: break-word;
     width: 100%;
-    position: fixed;
     bottom: 0;
     justify-content: center;
     margin: 0 auto;
@@ -81,7 +80,7 @@ h1{
 
 #credits{
     padding: 0 10px;
-    display:grid;
+    display: grid;
     font-size: 0.65em;
     word-wrap: break-word;
 }
