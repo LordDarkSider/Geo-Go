@@ -30,12 +30,16 @@ function end(){
 
 
 function geolocalisation(){
-    navigator.geolocation.getCurrentPosition(
-        position => {coordo.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;},
-        geoerror
-    );
-    setTimeout(geolocalisation,2000);
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(changePosition,geoerror);
+    } 
+    else {geoerror}
 };
+
+function changePosition(position) {
+    coordo.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+    //rajouter code détection si cible atteinte
+}
 
 function geoerror(error){
     alert("Géolocalisation impossible !");

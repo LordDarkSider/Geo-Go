@@ -11,7 +11,7 @@ body{
 
 #heading{
     display: block;
-    margin: 2em;
+    margin: 0.5em;
 }
 
 h1{
@@ -24,7 +24,7 @@ h1{
 
 #logo{
     display: inline-block;
-    margin-right: 0.5em;
+    width: 15%
 }
 
 #instruc{
