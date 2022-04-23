@@ -46,6 +46,8 @@ function geoerror(error){
     geolocalisation()
 };
 
+picture.onload = function(){setInterval(time, 1000)};
+picture.onerror = function(){location.reload()};
 picture.src='https://upload.wikimedia.org/wikipedia/commons/5/52/Lycee_descartes.jpg';
 
 credits.insertAdjacentHTML("afterbegin", "Image founie par "+image_author+" sur mapillery.");
@@ -58,5 +60,3 @@ addEventListener("keyup", function(event){
 
 
 geolocalisation();
-
-setInterval(time, 1000);
