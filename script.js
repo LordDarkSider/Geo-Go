@@ -42,8 +42,8 @@ function changePosition(position) {
 }
 
 function geoerror(error){
-    alert("Géolocalisation impossible !");
-    location.reload();
+    alert("Géolocalisation impossible ! Veuillez activer la géolocalisation.");
+    geolocalisation()
 };
 
 picture.src='https://upload.wikimedia.org/wikipedia/commons/5/52/Lycee_descartes.jpg';
