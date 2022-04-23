@@ -69,13 +69,14 @@ h1{
 #coordo{background-color: Darkred;}
 
 footer {
+    word-wrap: break-word;
     width: 100%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     justify-content: center;
     margin: 0 auto;
     margin-top: 3em;
-    background-color: grey;
+    background-color: rgba(100,100,100,0.7);
 }
 
 #credits{
