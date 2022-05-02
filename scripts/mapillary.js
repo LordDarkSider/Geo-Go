@@ -53,10 +53,10 @@ function getImageLink(imageID){
 function getImageCoordinates(imageID){
     let textGet = httpGet(URL + imageID + "?access_token=" + token + "&fields=geometry");
     let recieved = JSON.parse(textGet);
-    let link = recieved.geometry.coordinates;
-    if (link == undefined){
+    let coord = recieved.geometry.coordinates;
+    if (coord == undefined){
         return "error"
     } else {
-        return link;
+        return coord;
     }
 }

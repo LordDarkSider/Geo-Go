@@ -1,16 +1,10 @@
 const picture = document.getElementById('picture');
 const timer =  document.getElementById('timer');
-const distance =  document.getElementById('distance');
-const coordo = document.getElementById('coordo');
+const info_distance =  document.getElementById('distance');
+const info_coordo = document.getElementById('coordo');
 const credits = document.getElementById('credits');
 
-var t;
-var d;
-var d_dep = null;
-var p = new Object();
-var target = new Object();
-var image_author;
-var first;
+
 
 function time(){
     t=t+1
@@ -27,6 +21,26 @@ function time(){
     timer.innerHTML = ('Temps: '+String(h)+':'+String(m)+':'+String(s));
 };
 
+
+function create_target(){
+	//utilise fonctions de mapillary.js
+	target.id = getAroundImage(p.lat,p.lon)
+	
+	target.image.src = getImageLink(target.id);
+	//target.image.author = ;
+	
+	//target.coord.lat = ...
+    //target.coord.lon = ...
+	
+	picture.onload = function(){setInterval(time, 1000)};
+    picture.onerror = function(){location.reload()};
+    picture.src= target.image.src;
+    credits.insertAdjacentHTML("afterbegin", "Image founie par "+target.image.author+" sur mapillery.");
+
+    request_distance;
+};
+
+
 function end(){
     var score = Math.ceil((d_dep/t)*100)
     share= confirm('Bravo ! Vous avez gagné !\nScore: '+score+'\n\nVoulez-vous partagez votre score ?')
@@ -37,7 +51,7 @@ function end(){
 function geolocalisation(){
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(changePosition,geoerror);
-    } 
+    }
     else {geoerror}
 };
 
@@ -46,20 +60,21 @@ function changePosition(position) {
     
     p.lat = position.coords.latitude;
     p.lon = position.coords.longitude;
-    coordo.innerHTML = "Latitude: " + p.lat + "<br>Longitude: " + p.lon;
-
-    //si début de partie : renvoyer la position au programme de Nathan
+    info_coordo.innerHTML = "Latitude: " + p.lat + "<br>Longitude: " + p.lon;
+	
+	//si début de partie
     if (first){
         first = false;
-        //...
+        create_target()
     }
-    else if (target.coord.latitude != null){request_distance};
+	
+	else if (target.coord.lat != null){request_distance};
 };
 
 function request_distance(){
     //requete de la distance au programme de Nathan en lui envoyant comme paramètres coordo position et cible
-    d = distance([p.lat,p.lon],[target.coord.latitude,target.coord.longitude]);
-    distance.innerHTML = ('Distance: '+d+' m');
+    d = distance([p.lat,p.lon],[target.coord.lat,target.coord.lon]);
+    info_distance.innerHTML = ('Distance: '+d+' m');
     if(d_dep == null){d_dep = d};
     if(d<=6){end()};
 };
@@ -70,38 +85,28 @@ function geoerror(error){
 };
 
 
-// fonction appellée par la programme d'Hadrien qui prendra en paramètres les coordo de la cible, la source de l'image et son créateur
-function set_target(coordo, img_src, author){
-    target.coord.latitude = //...
-    target.coord.longitude = //...
-
-    picture.onload = function(){setInterval(time, 1000)};
-    picture.onerror = function(){location.reload()};
-    picture.src= img_src;
-    image_author= author;
-    credits.insertAdjacentHTML("afterbegin", "Image founie par "+image_author+" sur mapillery.");
-
-    request_distance;
-};
-
-
-function init(){
-    t = 0;
-    d = 0;
-    target.coords.latitude = null;
-    target.coords.longitude = null;
-    target.image.src = null;
-    target.image.author = null;
-    image_author = '...';
-    first = true;
-    picture.src='';
-    geolocalisation();
-};
-
 
 // à supprimer plus tard
 addEventListener("keyup", function(event){
     if (event.keyCode === 13) {d=d-100; distance.innerHTML = ('Distance: '+d+' m'); if(d<=5){end()}}
 });
 
-init;
+
+
+
+//initialisation
+var t= 0;
+var d= 0;
+var d_dep = null;
+var first = true;
+
+var p = new Object(); p.lat = null; p.lon = null;
+
+var target = new Object(); 
+target.id = null; 
+target.coord = new Object(); target.coord.lat = null; target.coord.lon = null;
+target.image = new Object(); target.image.src = null; target.image.author = null;
+
+picture.src='';
+
+geolocalisation();
