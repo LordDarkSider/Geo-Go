@@ -58,5 +58,6 @@ function getImageCoordinates(imageID){
         return "error"
     } else {
         return coord;
+		//coord : liste [lat,lon]
     }
 }

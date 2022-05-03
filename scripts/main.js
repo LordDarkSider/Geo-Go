@@ -24,13 +24,16 @@ function time(){
 
 function create_target(){
 	//utilise fonctions de mapillary.js
+	
 	target.id = getAroundImage(p.lat,p.lon)
 	
 	target.image.src = getImageLink(target.id);
 	//target.image.author = ;
 	
-	//target.coord.lat = ...
-    //target.coord.lon = ...
+	let coord = getImageCoordinates(target.id)
+	alert(coord)
+	target.coord.lat = coord[0]
+    target.coord.lon = coord[1]
 	
 	picture.onload = function(){setInterval(time, 1000)};
     picture.onerror = function(){location.reload()};
