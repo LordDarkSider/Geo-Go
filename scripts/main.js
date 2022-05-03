@@ -45,7 +45,7 @@ function create_target(){
     picture.src= target.image.src;
     credits.insertAdjacentHTML("afterbegin", "Image founie par "+target.image.author+" sur mapillery.");
 
-    request_distance;
+    request_distance();
 };
 
 function error(){
@@ -80,7 +80,7 @@ function changePosition(position) {
         create_target()
     }
 	
-	else if (target.coord.lat != null){request_distance};
+	else if (target.coord.lat != null){request_distance()};
 };
 
 function request_distance(){
