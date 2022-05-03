@@ -26,12 +26,17 @@ function create_target(){
 	//utilise fonctions de mapillary.js
 	
 	target.id = getAroundImage(p.lat,p.lon)
+	if (target.id == 0){
+		error()
+	}
 	
 	target.image.src = getImageLink(target.id);
 	//target.image.author = ;
 	
 	let coord = getImageCoordinates(target.id)
-	alert(coord)
+	if (coord == "error"){
+		error()
+	}
 	target.coord.lat = coord[0]
     target.coord.lon = coord[1]
 	
@@ -41,6 +46,10 @@ function create_target(){
     credits.insertAdjacentHTML("afterbegin", "Image founie par "+target.image.author+" sur mapillery.");
 
     request_distance;
+};
+
+function error(){
+	location.reload();
 };
 
 
