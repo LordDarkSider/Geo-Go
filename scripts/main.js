@@ -34,11 +34,12 @@ function create_target(){
 	//target.image.author = ;
 	
 	let coord = getImageCoordinates(target.id)
+	console.log(coord)
 	if (coord == "error"){
 		error()
 	}
-	target.coord.lat = coord[0]
-    target.coord.lon = coord[1]
+	target.coord.lat = coord[1]
+    target.coord.lon = coord[0]
 	
 	picture.onload = function(){setInterval(time, 1000)};
     picture.onerror = function(){location.reload()};
